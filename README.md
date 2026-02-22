@@ -50,71 +50,65 @@ A one-to-many relationship was created using customerID.
 
 The dashboard focuses on industry-relevant churn metrics:
 
-The dashboard focuses on industry-important churn metrics. Below are the main KPIs along with 
-their DAX formulas and explanations. 
-Total Customers 
-Total Customers = 
-DISTINCTCOUNT(Customer_Services_Billing[customerID]) 
-Description: 
-Shows the total customer base of the company. 
-Churned Customers 
-Churned Customers = 
-CALCULATE( 
-DISTINCTCOUNT(Customer_Services_Billing[customerID]), 
-Customer_Services_Billing[Churn] = "Yes" 
-) 
-Description: 
-Counts how many customers have left the company. 
-Active Customers 
-Active Customers = 
-CALCULATE( 
-DISTINCTCOUNT(Customer_Services_Billing[customerID]), 
-Customer_Services_Billing[Churn] = "No" 
-) 
-Description: 
-Shows customers currently using services. 
-Churn Rate (%) 
-Churn Rate % = 
-DIVIDE( 
-[Churned Customers], 
-[Total Customers], 
-0 
-) 
-Description: 
-The most critical KPI — indicates the percentage of customers who churned. 
-Retention Rate (%) 
-Retention Rate % = 
-DIVIDE( 
-[Active Customers], 
-[Total Customers], 
-0 
-) 
-Description: 
-Shows how successful the company is at retaining customers. 
-Average Monthly Charges 
-Avg Monthly Charges = 
-AVERAGE(Customer_Services_Billing[MonthlyCharges]) 
-Description: 
-Represents the typical monthly bill paid by customers. 
-Average Tenure 
-Avg Tenure = 
-AVERAGE(Customer_Services_Billing[tenure]) 
-Description: 
-Shows how long customers stay with the company on average. 
-Revenue Lost Due to Churn 
-Revenue Lost to Churn = 
-CALCULATE( 
-SUM(Customer_Services_Billing[MonthlyCharges]), 
-Customer_Services_Billing[Churn] = "Yes" 
-) 
-Description: 
-Estimates the monthly revenue impact caused by churned customers. 
-Active Monthly Revenue 
-Active Monthly Revenue = 
-CALCULATE( 
-SUM(Customer_Services_Billing[MonthlyCharges]), 
-Customer_Services_Billing[Churn] = "No" 
-) 
+1️⃣ Total Customers
+
+Total number of customers currently present in the dataset.
+
+2️⃣ Churned Customers
+
+Number of customers who have discontinued the service.
+
+3️⃣ Active Customers
+
+Number of customers who are still using the services.
+
+4️⃣ Churn Rate (%)
+
+Percentage of customers who have left the company.
+
+5️⃣ Retention Rate (%)
+
+Percentage of customers who continue using the services.
+
+6️⃣ Average Monthly Charges
+
+Average monthly amount billed to customers.
+
+7️⃣ Average Customer Tenure
+
+Average number of months customers stay with the company.
+
+8️⃣ Active Monthly Revenue
+
+Total monthly revenue generated from active customers.
+
+9️⃣ Revenue Lost Due to Churn
+
+Estimated monthly revenue lost from churned customers.
+
+🔟 Churn Rate by Contract Type
+
+Comparison of churn rates across different contract types (Month-to-Month, One Year, Two Year).
+
+1️⃣1️⃣ Churn Rate by Internet Service
+
+Analysis of churn behavior across internet service types (DSL, Fiber Optic, No Internet).
+
+1️⃣2️⃣ Churn Rate by Payment Method
+
+Comparison of churn rates across different payment methods.
+
+1️⃣3️⃣ Churn Rate by Senior Citizen
+
+Churn comparison between senior citizens and non-senior customers.
+
+1️⃣4️⃣ Average Monthly Charges (Churned vs Active)
+
+Comparison of billing amounts between churned and active customers.
+
+1️⃣5️⃣ Average Tenure (Churned vs Active)
+
+Comparison of customer tenure between churned and retained customers.
 
 📊 Dashboard Highlights
 KPI cards for quick business overview
